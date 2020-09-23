@@ -10,6 +10,7 @@ namespace Raktar
 
     class Program
     {
+        List<Termek> tremekek = new List<Termek>();
         static void BeolvasRaktar()
         {
             StreamReader raktar = new StreamReader("raktar.csv");
