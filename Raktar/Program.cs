@@ -25,10 +25,14 @@ namespace Raktar
         }
         static void Main(string[] args)
         {
-            Termek t = new Termek("P01", "Póló XXL", 1500, 10);
             BeolvasRaktar();
+            foreach (var t in termekek)
+            {
+                Console.WriteLine(t.Nev);
+            }
 
-            Console.WriteLine($"{t.Kod} - {t.Nev} - {t.Ar} - {t.DB}");
+            //Termek t = new Termek("P01", "Póló XXL", 1500, 10);
+            //Console.WriteLine($"{t.Kod} - {t.Nev} - {t.Ar} - {t.DB}");
             Console.ReadKey();
         }
     }
