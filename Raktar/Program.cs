@@ -11,7 +11,7 @@ namespace Raktar
     class Program
     {
         static List<Termek> termekek = new List<Termek>();
-        static List<Megrendeles> rendelesek = new List<Megrendeles>();
+        static List<Megrendeles> megrendelesek = new List<Megrendeles>();
         static void BeolvasRaktar()
         {
             StreamReader raktar = new StreamReader("raktar.csv");
@@ -30,12 +30,19 @@ namespace Raktar
 
             while (!rendeles.EndOfStream)
             {
-                string[] sor = rendeles.ReadLine().Split(';');
+                string sor = rendeles.ReadLine();
+                string[] adat = sor.Split(';');
 
-                if (sor[0] == "M")
+                if (adat[0] == "M")
                 {
-                    rendelesek.Add(new Megrendeles(sor[1], sor[2], sor[3]));
+                    megrendelesek.Add(new Megrendeles(adat[1], adat[2], adat[3]));
 
+                }
+                else
+                {
+                    //rendelesek[rendelesek.Count - 1].termekek.Add(sor);
+
+                    megrendelesek[megrendelesek.Count - 1].TetelHozzaad(adat[2], int.Parse(adat[3]));
                 }
                 // Console.WriteLine(sor[0]);
             }
@@ -53,7 +60,7 @@ namespace Raktar
             }
 
 
-            foreach (var r in rendelesek)
+            foreach (var r in megrendelesek)
             {
                 Console.WriteLine(r.Email);
             }

@@ -8,32 +8,40 @@ namespace Raktar
 {
     class Megrendeles
     {
-        public string datum;
+
+        private string datum;
         public string Datum 
         {
             get { return datum; }
             set { datum = value; }
         }
 
-        public string megrendelo;
+
+        private string megrendelo;
         public string Megrendelo
         {
             get { return megrendelo; }
             set { megrendelo = value; }
         }
 
-        public string email;
+        private string email;
         public string Email
         {
             get { return email; }
             set { email = value; }
         }
+        private List<Tetel> tetelek;
 
+        public void TetelHozzaad(string kod, int db)
+        {
+            tetelek.Add(new Tetel(kod, db));
+        }
         public Megrendeles(string datum, string megrendelo, string email)
         {
             this.datum = datum;
             this.megrendelo = megrendelo;
             this.email = email;
+            tetelek = new List<Tetel>();
 
         }
 
